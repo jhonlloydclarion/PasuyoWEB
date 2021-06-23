@@ -16,6 +16,7 @@ body{
 .profile-box{
     display: flex;
     width: 30%;
+    display:flex;
  
     
 }
