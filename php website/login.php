@@ -1,25 +1,46 @@
 
 <?php
-   
+    
+    require ("connection.php");
+
     $config = "front-dev-design/css/index.css";
-    $a = "fuck you!";
+
 
     include "images.php";
     include "connection.php";
 
     $error = "";
+
+
+
     // If the button submit has been clicked
     if(isset($_POST["btn-submit"])){
         
         //Codition Here!
+        $user = $_POST["username"];
+        $pass = $_POST["password"];
 
-        if(empty($_POST["username"]) || empty($_POST["password"])){
+        
+        if( empty($user) || empty($pass) ){
 
-            $error = "BOBO KA";
+            $error = "Username and Password is required";
             //$error_empty = echo "Username and Password is Empty";
         }
         else {
-            echo "Goods ka";
+            echo $user;
+            //Check if username and password is in the database
+            $ValidateQuerry = "SELECT * FROM user WHERE username = '$user' AND password = md5('$pass')";
+            $sqlvalidate = mysqli_query($connect,$ValidateQuerry);
+
+            //check kung may result
+
+            if (mysqli_num_rows($sqlvalidate) > 0){
+                echo "success.php";
+                $error = "Login Sucess";
+            }
+            else {
+                echo "Invalid Credentials";
+            }
         }
     }
 
@@ -33,14 +54,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php include "css.php";?>
-        <title>FAK</title>
+        <title>Pasuyo</title>
     </head>
     <style>
     
     
     </style>
 <body>
-    <form action="login.php" method="post">
+    <form action="/PASUYOWEB/php website/login.php" method="post">
         
         <div class="mainbox">
             <div class="loginbox">
