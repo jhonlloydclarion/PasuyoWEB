@@ -2,6 +2,7 @@
 
 <?php
 
+    $error = "";
     // If the button submit has been clicked
     if(isset($_POST["btn-submit"])){
         
@@ -16,18 +17,17 @@
             //$error_empty = echo "Username and Password is Empty";
         }
         else {
-            echo $user;
-            echo $pass;
+            //echo $user;
+           // echo $pass;
             //Check if username and password is in the database
-            $ValidateQuerry = "SELECT * FROM user WHERE UserName = 'user' AND PW = md5('pass')";
+            $ValidateQuerry = "SELECT * FROM user WHERE UserName = '$user' AND PW = '$pass'";
             $sqlvalidate = mysqli_query($connect,$ValidateQuerry);
-            print_r ($sqlvalidate);
+            //print_r ($sqlvalidate);
             //check kung may result
             $count = mysqli_num_rows($sqlvalidate); 
             echo $count;
             if ( $count > 0 ){
-                echo "success.php";
-                $error = "Login Sucess";
+                $error = "Login Success";
             }
             else {
                 echo "Invalid Credentials";

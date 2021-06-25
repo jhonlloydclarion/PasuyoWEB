@@ -10,7 +10,6 @@
     include "images.php";
     include "connection.php";
 
-    $error = "";
 
 
 ?>

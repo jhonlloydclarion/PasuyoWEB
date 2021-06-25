@@ -3,21 +3,37 @@
 
 <?php
 
-    require ("connection.php");
-    
-    if(isset($_POST["btn_submit"])){
-        echo "Button Triggered";
-        $user = $_POST["username"];
-        $pass = $_POST["password"];
+    require ("SqlConnect.php");    
+    include "insert.php";
 
-        if(empty($user) || empty($pass)){
+    // Login Process SQL
+    if(isset($_POST["submitt"])){
+        //echo "Button Triggered";
+        $User = $_POST["username"];
+        $Pass = $_POST["password"];
+
+        if(empty($User) || empty($Pass)){
             echo "Username and Password is required";
         }
         else {
-            echo "Login Success";
+            //Check if username and password is in the database
+            $sqlquerry = "SELECT UserName, PW FROM accounts WHERE UserName = '$User' AND PW = '$Pass'";
+            $validate = mysqli_query($connect,$sqlquerry);
+
+            //check kung may result
+            $check = mysqli_num_rows($validate);
+            //var_dump($check);
+            if ( $check > 0 ){
+                echo "Login Sucess";
+            }
+            else {
+                echo "Invalid Credentials";
+            }
         }
 
     }
+
+    
 
 ?>
 
@@ -30,10 +46,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/PasuyoWEB/Practice/login.php" method="post">
+    <form action="login.php" method="post">
         <input type="text" name="username">
-        <input type="password" name="password">
-        <input type="submit" value="Login" name="btn-submit">
+        <input type="password" name="password" >
+        <input type="submit" value="Login" name="submitt">
+        <input type="submit" value="Register" name="register">
     </form>
 </body>
 </html>
