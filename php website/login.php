@@ -9,9 +9,6 @@
     include "process.php";
     include "images.php";
     include "connection.php";
-
-
-
 ?>
 
 <!DOCTYPE html>
