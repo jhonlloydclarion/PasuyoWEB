@@ -40,6 +40,11 @@
 		$results = mysqli_query($conn,$sql_update);
 
 	}
+
+	if (isset($_POST['add'])){
+		add_qty("ABC");
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -163,6 +168,7 @@
 	<div class="check-out-container">
 		<ul class="master-ul">
 		
+			<form action="" method="post">
 			<?php
 					$sql = "SELECT * FROM aaa";
 				    $results = mysqli_query($conn,$sql);
@@ -177,7 +183,8 @@
 				            $price = $roww["price"];
 				            $qty = $roww["qty"];
 				            $prod_id = $roww["product_id"];
-				      
+				      		
+				      		// echo  	"<form action='' method='post'>";
 					        echo    "<li class='list'>";
 							echo		"<div class='img-container'>";
 							echo			"<img class='p-image' src='".$path_image."'>";
@@ -195,18 +202,20 @@
 							echo			"<label class='lbl'>".$qty."</label>";
 							echo		"</div>";
 							echo		"<div class='button-container'>";
-							echo			"<input onclick="."add_qty('".$prod_id."')class='btn' type='submit' name='' value='+'>";
-							echo			"<input onclick='<neg_qty('-".$prod_id."')' class='btn' type='submit' name='' value='-'>";
+							echo			"<input class='btn' type='submit' name='add' value='+'>";
+							echo			"<input class='btn' type='submit' name='remove' value='-'>";
+							echo 			"<input style='display:none;' type='submit' name=''";
 							echo		"</div>";
 							echo	"</li>";
+							// echo 	"</form>";
 				        }
 				    }
 				    else{
 				    	echo "No Data in the Database";
 				    }
 			?>
-			
-			<input type="button" name="" onclick="<?php add_qty('ABC');?>" value="Add">
+			</form>
+		
 		</ul>
 	
 	</div>

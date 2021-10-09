@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML Display</title>
+</head>
+<body>
+<style type="text/css">
+	.checkout-box{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		align-self: center;
+		width: auto;
+		flex-direction: column;
+	}
+	.act-btn{
+		display: flex;
+		width: 40%;
+		justify-content: center;
+
+	}
+	.small-box{
+		width:50%;
+	}
+	.tr-container{
+		width: auto;
+
+	}
+	.display-table{
+		width: 100%;
+		text-align: left;
+	}
+	td,tr{
+		width: 10%;
+	}
+	th{
+		padding-bottom: 10px;
+	}
+	.img-holder{
+		display: flex;
+		width: 50px;
+		height: 50px;
+	}
+	.d-img{
+		display: flex;
+		width: 100%;
+		object-fit: cover;
+	}
+	@media screen and (max-width: 580px) {
+	  body {
+	    background-color: lightgreen;
+	  }
+	}
+</style>
+
+
+	<div class="checkout-box">
+		<h1>Cart Check Out</h1>
+		<table class="display-table">
+			<tr class="tr-container">
+				<th>Product Name</th>
+				<th>Product Image</th>
+				<th>Qty</th>
+				<th>Price</th>
+				<th>Total</th>
+				<th>Action</th>
+			</tr>
+
+			<tr class="tr-container">
+				<td>Century Tuna</td>
+				<td>
+					<div class="img-holder">
+						<img class="d-img" src="img/pancake.jpg" alt="google.png">
+					</div>
+				</td>
+				<td style="display:flex;">
+					<input type="submit" name="" value="+">
+					<input class="small-box" type="" name="">
+					<input type="submit" name="" value="-">
+					
+				</td>
+				<td>
+					<input class="small-box" type="" name="">
+				</td>
+				<td>
+					<input class="small-box" type="" name="">
+				</td>
+				<td style="display: flex;width: 100%;">
+					<input class="act-btn" type="submit" name="" value="Remove">
+					<input class="act-btn" type="submit" name="" value="Update">
+				</td>
+			</tr>
+
+			
+			<tr style="text-align: right;">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<label style="font-size: 16px; font-weight: bold;">Total:</label>
+				</td>
+				<td style="text-align:left;">
+					<label style="font-size: 16px; font-weight: bold;">P 200</label>
+				</td>
+				<td style="text-align:center;">
+					<input type="submit" name="" value="Checkout" style="width: 100%;">
+				</td>
+			</tr>
+		</table>
+	</div>
+
+
+
+</body>
+</html>

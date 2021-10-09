@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>Receipt</title>
+</head>
+<style type="text/css">
+	body{
+		display: flex;
+		justify-content: center;
+		margin: 0px;
+		padding: 0px;
+		font-family: Arial;
+	}
+	h1{
+		padding: 0px;
+		margin: 0px;
+	}
+	.receipt-box{
+		background-color: #F5F5F5;
+		width: 360px;
+		height: 640px;
+	}
+	.status-box-1{
+		
+		width: 90%;
+		margin-left: 5%;
+		height: 10%;
+		display: flex;
+		align-items: center;
+		margin-bottom: 2px;
+		justify-content: center;
+	}
+	.status-box-2{
+		display: flex;
+		width: 90%;
+		height: 15%;
+		margin-left: 5%;
+		margin-bottom: 6px;
+	}
+	.sub-box-1{
+		width: 47%;
+		padding-left: 2%;
+		margin-right: 1%;
+		height: 100%;
+		
+		font-size: 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-radius: 10px;
+
+		box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	}
+	.rider-time-stamp{
+		margin-top: 5px;
+	}
+	.rider-name,.rider-contact{
+		font-style: italic;
+	}
+	.rider-label{
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	.sub-box-2{
+		font-size: 12px;
+		width: 48%;
+		height: 100%;
+		margin-left: 6px;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		border-radius: 10px;
+
+		box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	}
+	.status-box-3{
+		width: 90%;
+		margin-left: 5%;
+		height: 7%;
+		margin-bottom: 6px;
+		display: flex;
+		border-radius: 10px;
+		box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	}
+	.amount-box{
+		width: 50%;
+		height: 100%;
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.sc-box{
+		width: 50%;
+		height: 100%;
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.status-box-4{
+		width: 90%;
+		margin-left: 5%;
+		height: 50%;
+		background-color: white;
+		border-radius: 10px;
+		overflow-y: scroll;
+		box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	}
+	.status-box-5{
+		width: 90%;
+		height: 8%;
+		margin-left: 5%;
+		border-radius: 10px;
+		margin-top: 10px;
+		box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	}
+	.m-col{
+		display: flex;
+		min-height: 50px;
+		font-weight: bold;
+		padding-left: 5px;
+		padding-right: 5px;
+		padding-bottom: 5px;
+		font-size: 12px;
+		align-items: center;
+		justify-content: center;
+	}
+	.p-col{
+		display: flex;
+		min-height: 35px;
+		
+		padding-left: 5px;
+		padding-right: 5px;
+		padding-bottom: 5px;
+		font-size: 12px;
+		
+		
+		margin-bottom: 3px;
+	}
+	.col-1{
+		display: flex;
+		width: 10%;
+		height: auto;
+		margin-right: 5px;
+	}
+	.col-2{
+		width: 30%;
+		height: auto;
+	}
+	.col-3{
+		width: 20%;
+		height: auto;
+	}
+	.col-4{
+		display: flex;
+		width: 20%;
+		height: auto;
+	}
+	.col-5{
+		width: 20%;
+		height: auto;
+	}
+	.available{
+		width: 5px;
+		height: 15px;
+		background-color: #00C170;
+	}
+	.not-available{
+		width: 5px;
+		height: 15px;
+		background-color: #FF1A1A;
+	}
+	.add{
+		width: 5px;
+		height: 15px;
+		margin-right: 2px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 7px;
+		background-color: black;
+		color: white;
+		border-radius: 100%;
+	}
+	.remove{
+		width: 5px;
+		height: 15px;
+		margin-left: 2px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		font-size: 7px;
+		background-color: black;
+		color: white;
+		border-radius: 100%;
+	}
+</style>
+<body>
+
+	<div class="receipt-box">
+		<div class="status-box-1">
+			<h1>Waiting...</h1>
+		</div>
+		<div class="status-box-2">
+			<div class="sub-box-1">
+				<div class="rider-label">
+					Rider Status
+				</div>
+				<div class="rider-name">
+					Jhon Lloyd B. Clarion
+				</div>
+				<div class="rider-contact">
+					09090350890
+				</div>
+				<div class="rider-time-stamp">
+					2021-08-29 08:58:41
+				</div>
+			</div>
+			<div class="sub-box-2">
+				Thank you for choosing Pasuyo
+			</div>
+		</div>
+		<div class="status-box-3">
+			<div class="amount-box">
+				<strong>TOTAL: P1,232</strong>
+			</div>
+			<div class="sc-box">
+				<strong>S.C: 123456</strong>
+			</div>
+		</div>
+		<div class="status-box-4">
+			<div class="m-col">
+				<div class="col-1">
+					
+				</div>
+				<div class="col-2">
+					Product Name
+				</div>
+				<div class="col-3">
+					Price
+				</div>
+				<div class="col-4">
+					Qty
+				</div>
+				<div class="col-5">
+					Total
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+			<div class="p-col">
+				<div class="col-1">
+					<input class="available" type="submit" name="" value="">
+					<input class="not-available" type="submit" name="" value="">
+				</div>
+				<div class="col-2">
+					Nissin Yakisoba Puch Spicy Chickeb 59 grams.
+				</div>
+				<div class="col-3">
+					P 10
+				</div>
+				<div class="col-4">
+					<input class="add" type="submit" name="" value="+">
+					12
+					<input class="remove" type="submit" name="" value="-">
+				</div>
+				<div class="col-5">
+					123123
+				</div>
+			</div>
+
+
+
+			<div class="p-col">	
+			</div>
+
+			
+		</div>
+		<div class="status-box-5"></div>
+	</div>
+	
+
+
+
+</body>
+</html>

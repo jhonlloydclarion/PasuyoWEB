@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<style type="text/css">
+		body{
+			padding: 0px;
+			margin: 0px;
+		}
+		.master-container{
+			width: 100%;
+			height: auto;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.prod-box{
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			height: 250px;
+			background-color: red;
+		}
+		.img-box{
+			/*55%*/
+			display: flex;
+			margin-bottom: 5%;
+			height: 50%;
+			width: 100%;
+			
+		}
+		.a-img{
+			display: flex;
+			width: 100%;
+			object-fit: cover;
+		}
+		.detail-box,.price-box{
+			padding-left: 3%;
+			padding-right: 3%;
+			width: 94%;
+		}
+		.detail-box{
+			/*20%*/
+			display: flex;
+			
+			height: 15%;
+			margin-bottom: 5%;
+		}
+		.price-box{
+			/*10%*/
+			display: flex;
+			
+			height: 5%;
+			margin-bottom: 5%;
+		}
+		.action-btn-box{
+			/*10%*/
+			display: flex;
+			width: 100%;
+			height: 15%;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+
+		}
+		.a-btn{
+			width: 90%;
+			border-style: none;
+			padding: 3%;
+		}
+	</style>
+
+	<div class="master-container">
+		
+		<div class="prod-box">
+			<div class="img-box">
+				<img class="a-img" src="img/pancake.jpg">
+			</div>
+			<div class="detail-box">
+				<label class="a-details">
+					This is a long title with 500g of long text title
+				</label>
+			</div>
+			<div class="price-box">
+				<label class="a-price">
+					P 300
+				</label>
+			</div>
+			<div class="action-btn-box">
+				<input class="a-btn" type="submit" name="" value="Submit">
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

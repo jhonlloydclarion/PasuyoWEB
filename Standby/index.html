@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<title>Pasuyo</title>
+	<link rel="shortcut icon" href="img/logo bike.svg">
+	<link rel="image_src" href="img/logo bike.svg" />
+
+</head>
+<body>
+
+	<style type="text/css">
+		/*#18829C*/
+		p,h1{
+			margin: 0px;
+			padding: 0px;
+			color: white;
+		}
+		body{
+			background-color: #18829C;
+			font-family: arial;
+			margin: 0px;
+			padding: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		
+		}
+		.container{
+			display: flex;
+			width: 300px;
+			height: auto;
+		
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			margin-top: 50px;
+			
+		}
+
+		@media screen and (max-width: 599px) {
+			.container{
+				margin-top: 50px;
+			}
+
+		}
+		.box{
+			display: flex;
+			width: 100%;
+			height: 100%;
+			flex-direction: column;
+			align-items: center;
+			
+		}
+		.img{
+			width: 100%;
+		}
+		a{
+			color: white;
+		}
+		.lbl{
+			color: white; margin-top: 50px; text-align: center;
+		}
+		.lbl-2{
+			color: white; margin-top: 10px; text-align: center;
+		}
+		.contact-box{
+			display: flex;
+			margin-top: 30px;
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+		.preview-btn{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 80%;
+			padding: 10px;
+			border-style: none;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+
+	</style>
+	<div class="container">
+		<div class="box">
+			<!-- <h1>Hello!</h1>
+			<p>Pasuyo will be serving soon!</p> -->
+			<img class="img" src="img/white logo.svg">
+			<a href="https://www.facebook.com/Pasuyo-102174574657175">Facebook Page</a>
+			<label class="lbl">We are now open for pre-registration, customer and rider are welcome</label>
+			<div class="contact-box">
+				<label class="lbl-2">09090350890 (Smart)</label>
+				<label class="lbl-2">helppasuyo@gmail.com (Email)</label>
+			</div>
+
+			<input class="preview-btn" type="button" onclick="window.location.href='https://www.pasuyo.store/previews/index.php';" value="Visit Preview Site">
+			<input class="preview-btn" type="button" onclick="window.location.href='http://pasuyo.store/Customer%20Registration.php';" value="Customer Registration">
+			<input class="preview-btn" type="button" onclick="window.location.href='http://pasuyo.store/Registration%20Rider.php';" value="Rider Registration">
+
+
+			
+		</div>
+	</div>
+</body>
+</html>
